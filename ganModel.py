@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Rasim Savas - 1160505047
-
-Yazilim Muhendisligi 4. sinif staj odevi
+Rasim Savas
 
 """
 
@@ -19,7 +17,7 @@ import matplotlib.image as mpimg
 from matplotlib.pyplot import imshow
 
 
-directory = r"C:\Users\berat\Desktop\DCGAN\Ebru\genFolder"
+directory = r"C:\Users\savas\Desktop\DCGAN\Ebru\genFolder"
 
 dataset = keras.preprocessing.image_dataset_from_directory(
     directory, label_mode=None, image_size=(256, 256), batch_size=64, shuffle=True, seed=31, color_mode="rgb"
@@ -150,7 +148,7 @@ class GANMonitor(keras.callbacks.Callback):
             if i % 2 == 0 or 1:
 
                 img.save(
-                    r"C:\Users\berat\Desktop\DCGAN\items\egitim3\generated_img_%03d_%d.png" % (epoch, i))
+                    r"C:\Users\savas\Desktop\DCGAN\items\egitim3\generated_img_%03d_%d.png" % (epoch, i))
 
 
 epochs = 500
@@ -175,5 +173,5 @@ class Gen(tf.Module):
   def add(self, x):
     return gan.generator(x)
 
-directory = r"C:\Users\berat\Desktop\DCGAN\savedModel"
+directory = r"C:\Users\savas\Desktop\DCGAN\savedModel"
 tf.saved_model.save(gan, directory, signatures=None)
